@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package org.apache.camel.component.protobuf;
+
+option java_package = "org.apache.camel.component.protobuf";
+option java_outer_classname = "PersonDetails";
+
+message Person {
+  uint64 id = 1;
+  string email = 2;
+  bool is_active = 3;
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+   message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+   }
+   
+  repeated PhoneNumber phones = 4;
+}
